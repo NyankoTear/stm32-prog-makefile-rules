@@ -14,10 +14,7 @@ STM32_PROG_OPTIONAL_FLAG = -v -rst
 download: 
 	$(STM32_PROG_PATH) $(STM32_PROG_PORT_FLAG) $(STM32_PROG_DOWNLOAD_FLAG) $(STM32_PROG_DOWNLOAD_ADDR_FLAG) $(STM32_PROG_OPTIONAL_FLAG)
 
-rebuild:
-	make clean
+rebuild: clean
 	make -j$(NPROC) all
 
-run: 
-	make rebuild
-	make download
+run: rebuild download
